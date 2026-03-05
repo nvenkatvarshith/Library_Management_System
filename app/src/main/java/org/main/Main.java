@@ -3,12 +3,18 @@
  */
 package org.main;
 
+import org.Book;
+import org.library.Library;
+
 public class Main {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new Main().getGreeting());
+        Book book1 = new Book("Effective Java", "Joshua Bloch", "978-0134685991", 2017);
+        Book book2 = new Book("Kubernetes: Up and Running", "Brendan Burns", "978-1492046530", 2019);
+        Book book3 = new Book("Platform Engineering on Kubernetes", "Mauricio Salatino", "978-1617299322", 2023);
+        Book book4 = new Book("The Mango Orchard", "Robin Bingham", "978-1542014161", 2020);
+        Book book5 = new Book("Design Patterns", "Erich Gamma", "978-0201633610", 1994);
+
+
     }
 }

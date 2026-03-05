@@ -6,10 +6,10 @@ step1: Gather functional requirements - what are the functionality that our syst
 - It should manage a library - library should have books
 - It should manage books - add book, remove book
 - It should manage patrons profile - add patron, remove patron
-- It should manage lending process - patron should be able to lend books from library
+- It should have checkout process - patron should be able to lend books from library - Book will be unavailable, add book
+  to the patrons borrowed.
 - Patron should be charged based on the return date of the book
 - Librarian should be able to say if the book is available or someone borrowed it
-
 
 step2: Non-functional requirements
 - Extensibility/ evolvability
@@ -22,8 +22,9 @@ step3: Define Entities - bottom up approach - we will start from the lowest enti
 - Book
 - Library
 - Patron
-- LendingStrategy
+- Checkout - borrowBooks
 
 step4: Relationship between entities
 - Library has Books - aggregation - one to many
 - Library has Patrons - aggregation - one to many
+- Library has Checkout - used by Patron to checkout books
