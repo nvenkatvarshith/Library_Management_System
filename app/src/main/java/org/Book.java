@@ -54,4 +54,15 @@ public class Book {
     public Boolean getIsAvailable(){
         return isAvailable;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", isAvailable=" + isAvailable +
+                '}';
+    }
 }

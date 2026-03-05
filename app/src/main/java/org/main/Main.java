@@ -5,9 +5,13 @@ package org.main;
 
 import org.Book;
 import org.library.Library;
+import org.patron.Patron;
+
+import java.util.Scanner;
 
 public class Main {
 
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         Book book1 = new Book("Effective Java", "Joshua Bloch", "978-0134685991", 2017);
         Book book2 = new Book("Kubernetes: Up and Running", "Brendan Burns", "978-1492046530", 2019);
@@ -15,6 +19,61 @@ public class Main {
         Book book4 = new Book("The Mango Orchard", "Robin Bingham", "978-1542014161", 2020);
         Book book5 = new Book("Design Patterns", "Erich Gamma", "978-0201633610", 1994);
 
+        Patron member1 = new Patron("Aarav Sharma", "9876543210", "14, MG Road, Bangalore, Karnataka 560001", "aarav.sharma@example.com");
+        Patron member2 = new Patron("Priya Patel", "8765432109", "Flat 402, Sea View Apts, Andheri West, Mumbai, Maharashtra 400053", "priya.p@example.com");
+        Patron member3 = new Patron("Rahul Reddy", "7654321098", "Plot 45, Jubilee Hills, Hyderabad, Telangana 500033", "rahul.reddy@example.com");
+        Patron member4 = new Patron("Ananya Singh", "9123456780", "12/A, Connaught Place, New Delhi, Delhi 110001", "ananya.singh@example.com");
+        Patron member5 = new Patron("Vikram Desai", "9988776655", "8th Cross, Anna Nagar, Chennai, Tamil Nadu 600040", "v.desai@example.com");
 
+        Library library = new Library();
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.addBook(book4);
+        library.addBook(book5);
+
+        library.addPatron(member1);
+        library.addPatron(member2);
+        library.addPatron(member3);
+        library.addPatron(member4);
+        library.addPatron(member5);
+
+        library.displayAllDetails();
+
+        int choice=0;
+        do{
+            System.out.println("4. Remove Member" +
+                    "\n5. Checkout Book" +
+                    "\n6. Return Book" +
+                    "\n7. Exit");
+            System.out.println("""
+                    select the action to perform.
+                    1. Book
+                    2. Member
+                    3. Checkout
+                    4. Exit""");
+            choice = scanner.nextInt();
+            switch (choice){
+                case 1:
+                    System.out.println("""
+                            Enter action to be performed.
+                            1. Add Book
+                            2. Remove Book
+                            3. Main Menu""");
+
+
+                    System.out.println("Enter book details:");
+                    System.out.println("Enter title:");
+                    String title = scanner.next();
+                    System.out.println("Enter author:");
+                    String author = scanner.next();
+                    System.out.println("Enter isbn:");
+                    String isbn = scanner.next();
+                    System.out.println("Enter publication year:");
+                    int publicationYear = scanner.nextInt();
+                    Book book = new Book(title,author,isbn,publicationYear);
+                    library.addBook(book);
+            }
+        }while (true);
     }
 }

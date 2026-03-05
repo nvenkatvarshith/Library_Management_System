@@ -68,4 +68,15 @@ public class Patron {
     public void returnBook(Book returnBook){
         borrowedBooks.removeIf(book -> returnBook.getIsbn().equals(book.getIsbn()));
     }
+
+    @Override
+    public String toString() {
+        return "Patron{" +
+                "name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", borrowedBooks=" + borrowedBooks +
+                '}';
+    }
 }
